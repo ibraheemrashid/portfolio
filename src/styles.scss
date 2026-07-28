@@ -1,1 +1,220 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================================================
+   Global design tokens
+   Palette: paper/mist neutrals (Apple's restraint) + a two-tone
+   accent pair that's actually Ibraheem's: deep teal (Dal Lake)
+   and a bronze-amber (saffron, Kashmir's own crop).
+   ========================================================= */
+:root {
+  color-scheme: light dark;
+
+  --paper: #ffffff;
+  --mist: #f5f5f7;
+  --mist-2: #ebebef;
+  --ink: #1d1d1f;
+  --ink-soft: #424245;
+  --muted: #6e6e73;
+  --line: #d2d2d7;
+
+  --teal: #0b6e68;
+  --teal-deep: #095650;
+  --amber: #c17f2e;
+  --amber-deep: #a4691f;
+
+  /* Constant "always-dark" surface — used for accent cards/bands that stay
+     dark regardless of site theme (e.g. the About page's quick-facts card).
+     Deliberately NOT theme-dependent. */
+  --invert-bg: #1d1d1f;
+  --invert-text: #f5f5f7;
+  --invert-accent: #e3a458;
+
+  /* Nav bar translucency — theme-dependent */
+  --nav-bg: rgba(255, 255, 255, 0.72);
+  --nav-border: rgba(0, 0, 0, 0.06);
+
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --radius-sm: 9px;
+
+  --container: 1120px;
+
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  --section-pad: 72px;
+}
+
+@media (min-width: 900px) {
+  :root { --section-pad: 132px; }
+}
+
+/* =========================================================
+   Dark theme — toggled by ThemeService via [data-theme="dark"]
+   on <html>. Only the tokens that need to flip are redefined;
+   --invert-* stays constant on purpose (see note above).
+   ========================================================= */
+:root[data-theme='dark'] {
+  --paper: #000000;
+  --mist: #1c1c1e;
+  --mist-2: #2c2c2e;
+  --ink: #f5f5f7;
+  --ink-soft: #d1d1d6;
+  --muted: #98989d;
+  --line: #38383a;
+
+  --teal: #20b8ae;
+  --teal-deep: #3fd0c5;
+  --amber: #e3a458;
+  --amber-deep: #e3a458;
+
+  --nav-bg: rgba(0, 0, 0, 0.6);
+  --nav-border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  transition: background-color .3s ease, color .3s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, p { margin: 0; }
+button { font: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Layout utilities ---------- */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (min-width: 900px) {
+  .container { padding: 0 40px; }
+}
+
+.section {
+  padding: var(--section-pad) 0;
+}
+.section--alt {
+  background: var(--mist);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--amber-deep);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.heading-xl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  font-size: clamp(34px, 7vw, 64px);
+  line-height: 1.06;
+}
+
+.heading-lg {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-size: clamp(26px, 4.2vw, 40px);
+  line-height: 1.12;
+}
+
+.lede {
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 19px);
+  max-width: 620px;
+  line-height: 1.5;
+}
+
+/* ---------- Buttons & tags ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  white-space: nowrap;
+}
+.btn--primary { background: var(--teal); color: #fff; }
+.btn--primary:hover { background: var(--teal-deep); transform: translateY(-1px); }
+.btn--outline { border-color: var(--line); color: var(--ink); background: transparent; }
+.btn--outline:hover { border-color: var(--teal); color: var(--teal); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--mist);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ---------- Reveal-on-scroll (used by RevealDirective) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ---------- Native View Transitions for route changes ----------
+   Angular Router's withViewTransitions() calls document.startViewTransition().
+   This just tunes the default crossfade Chromium/Safari apply automatically.
+   No-ops safely in browsers without support. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}

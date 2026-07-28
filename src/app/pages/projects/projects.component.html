@@ -1,0 +1,30 @@
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Selected work</span>
+    <h1 class="heading-xl" appReveal>Things I've actually shipped.</h1>
+
+    <div class="grid">
+      @for (project of projects; track project.slug) {
+        <article class="card" appReveal>
+          <a [routerLink]="['/projects', project.slug]" class="card__media">
+            <app-shot [src]="project.screenshots[0]" [alt]="project.title + ' screenshot'"></app-shot>
+          </a>
+          <div class="card__body">
+            <span class="card__status">{{ project.status }}</span>
+            <h3><a [routerLink]="['/projects', project.slug]">{{ project.title }}</a></h3>
+            <p>{{ project.tagline }}</p>
+            <div class="tag-row">
+              @for (t of project.stack; track t) {
+                <span class="tag">{{ t }}</span>
+              }
+            </div>
+            <div class="card__links">
+              <a [routerLink]="['/projects', project.slug]" class="card__link">View project →</a>
+              <a [href]="project.github" target="_blank" rel="noopener" class="card__link card__link--muted">GitHub</a>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

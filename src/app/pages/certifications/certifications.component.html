@@ -1,0 +1,19 @@
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Certifications</span>
+    <h1 class="heading-xl" appReveal>Learning on purpose, not just on the job.</h1>
+
+    <div class="cert-grid">
+      @for (cert of certifications; track cert.title) {
+        <div class="cert-card" appReveal>
+          <span class="cert-card__badge">🎓</span>
+          <h3>{{ cert.title }}</h3>
+          <span class="cert-card__issuer">{{ cert.issuer }}</span>
+          @if (cert.date) {
+            <span class="cert-card__date">{{ cert.date }}</span>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

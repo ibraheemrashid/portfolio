@@ -1,0 +1,85 @@
+@if (project(); as p) {
+  <section class="section detail-hero">
+    <div class="container">
+      <a routerLink="/projects" class="back-link">← All projects</a>
+      <span class="eyebrow">{{ p.status }}</span>
+      <h1 class="heading-xl" appReveal>{{ p.title }}</h1>
+      <p class="lede" appReveal>{{ p.tagline }}</p>
+
+      <div class="detail-hero__ctas" appReveal>
+        <a [href]="p.github" target="_blank" rel="noopener" class="btn btn--primary">View on GitHub</a>
+        @if (p.live) {
+          <a [href]="p.live" target="_blank" rel="noopener" class="btn btn--outline">Visit live site</a>
+        }
+      </div>
+
+      <div class="tag-row detail-hero__tags" appReveal>
+        @for (t of p.stack; track t) {
+          <span class="tag">{{ t }}</span>
+        }
+      </div>
+
+      @if (p.metric) {
+        <div class="detail-hero__metric" appReveal>{{ p.metric }}</div>
+      }
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="gallery">
+        @for (shot of p.screenshots; track shot) {
+          <div appReveal>
+            <app-shot [src]="shot" [alt]="p.title + ' screenshot'"></app-shot>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="case-study">
+        <div class="case-study__block" appReveal>
+          <span class="case-study__label">Problem</span>
+          <p>{{ p.problem }}</p>
+        </div>
+        <div class="case-study__block" appReveal>
+          <span class="case-study__label">Approach</span>
+          <ul class="case-study__list">
+            @for (step of p.approach; track step) {
+              <li>{{ step }}</li>
+            }
+          </ul>
+        </div>
+        <div class="case-study__block" appReveal>
+          <span class="case-study__label">Outcome</span>
+          <p>{{ p.outcome }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  @if (others().length) {
+    <section class="section section--alt">
+      <div class="container">
+        <span class="eyebrow">More work</span>
+        <div class="others">
+          @for (o of others(); track o.slug) {
+            <a [routerLink]="['/projects', o.slug]" class="others__item" appReveal>
+              <span>{{ o.title }}</span>
+              <span class="others__arrow">→</span>
+            </a>
+          }
+        </div>
+      </div>
+    </section>
+  }
+} @else {
+  <section class="section">
+    <div class="container">
+      <h1 class="heading-lg">Project not found</h1>
+      <p class="lede">That one doesn't exist — try the <a routerLink="/projects" class="inline-link">full list</a>.</p>
+    </div>
+  </section>
+}

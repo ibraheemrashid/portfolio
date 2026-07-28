@@ -1,0 +1,68 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <span class="hero__location">Srinagar, Kashmir</span>
+    <h1 class="hero__title">Building across<br><em>Android, the web,</em><br>and applied AI.</h1>
+    <p class="lede hero__lede">
+      I'm Ibraheem Rashid — a software developer who turns ambiguous problems
+      into interfaces people actually trust.
+    </p>
+    <div class="hero__ctas">
+      <a routerLink="/projects" class="btn btn--primary">See the work</a>
+      <a href="Ibraheem Rashid.pdf" download class="btn btn--outline">Download résumé</a>
+    </div>
+  </div>
+</section>
+
+<section class="section pillars">
+  <div class="container">
+    <span class="eyebrow">What I build with</span>
+    <h2 class="heading-lg" appReveal>Three platforms, one habit of shipping.</h2>
+
+    <div class="pillars__grid">
+      <a routerLink="/about" class="pillar" appReveal>
+        <span class="pillar__label">01</span>
+        <h3>Mobile</h3>
+        <p>Kotlin, Android SDK, React Native — from a shopping app to a prayer-times app that runs fully offline.</p>
+      </a>
+      <a routerLink="/about" class="pillar" appReveal>
+        <span class="pillar__label">02</span>
+        <h3>Web</h3>
+        <p>React, Angular, Django — frontends and backends built to hold up outside a demo.</p>
+      </a>
+      <a routerLink="/about" class="pillar" appReveal>
+        <span class="pillar__label">03</span>
+        <h3>Applied AI</h3>
+        <p>Python, scikit-learn, NLP pipelines that turn messy text into a decision someone can act on.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt featured">
+  <div class="container">
+    <span class="eyebrow">Selected work</span>
+    <h2 class="heading-lg" appReveal>Two problems worth solving properly.</h2>
+
+    <div class="featured__grid">
+      @for (project of featured; track project.slug) {
+        <a [routerLink]="['/projects', project.slug]" class="featured__card" appReveal>
+          <app-shot [src]="project.screenshots[0]" [alt]="project.title + ' screenshot'"></app-shot>
+          <div class="featured__card-body">
+            <span class="featured__card-status">{{ project.status }}</span>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.tagline }}</p>
+          </div>
+        </a>
+      }
+    </div>
+
+    <a routerLink="/projects" class="featured__all">View all projects →</a>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="container cta-band__inner" appReveal>
+    <h2 class="heading-lg">Let's build something.</h2>
+    <a routerLink="/contact" class="btn btn--primary">Get in touch</a>
+  </div>
+</section>

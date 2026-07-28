@@ -1,0 +1,41 @@
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Where I've worked</span>
+    <h1 class="heading-xl" appReveal>A path that didn't start in a code editor.</h1>
+
+    <div class="timeline">
+      @for (item of items; track item.org) {
+        <div class="t-item" appReveal>
+          <span class="t-item__date">{{ item.dateRange }}</span>
+          <h3>{{ item.role }}</h3>
+          <span class="t-item__org">{{ item.org }} · {{ item.location }}</span>
+          <ul class="t-item__points">
+            @for (point of item.points; track point) {
+              <li>{{ point }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <span class="eyebrow">Education</span>
+    <h2 class="heading-lg" appReveal>Where the foundation got laid.</h2>
+
+    <div class="edu__grid">
+      <div class="edu-card" appReveal>
+        <span class="edu-card__date">12/2020 — 11/2024</span>
+        <h3>Bachelor of Computer Science</h3>
+        <span class="edu-card__sub">University of Kashmir, Srinagar</span>
+      </div>
+      <div class="edu-card" appReveal>
+        <span class="edu-card__date">01/2018 — 12/2019</span>
+        <h3>Higher Secondary</h3>
+        <span class="edu-card__sub">Dr. AGM's City School</span>
+      </div>
+    </div>
+  </div>
+</section>
