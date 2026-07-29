@@ -1,51 +1,159 @@
 <section class="hero">
   <div class="container hero__inner">
-    <span class="hero__location">Srinagar, Kashmir</span>
-    <h1 class="hero__title">Building across<br><em>Android, the web,</em><br>and applied AI.</h1>
-    <p class="lede hero__lede">
-      I'm Ibraheem Rashid — a software developer who turns ambiguous problems
-      into interfaces people actually trust.
-    </p>
-    <div class="hero__ctas">
-      <a routerLink="/projects" class="btn btn--primary">See the work</a>
-      <a href="Ibraheem Rashid.pdf" download class="btn btn--outline">Download résumé</a>
+    <div class="hero__content">
+      <div class="hero__eyebrow-row" appReveal>
+        <span class="hero__eyebrow-text">Hello, I'm</span>
+        <span class="hero__eyebrow-dash" aria-hidden="true"></span>
+      </div>
+
+      <h1 class="hero__name" appReveal>Ibraheem Rashid</h1>
+
+      <p class="hero__role-line" appReveal>
+        <span class="hero__role-rotator">
+          @for (role of [roles[roleIndex()]]; track role.lead + role.rest) {
+            <span class="hero__role-text">
+              <em>{{ role.lead }}</em> {{ role.rest }}
+            </span>
+          }
+        </span>
+      </p>
+
+      <p class="lede hero__lede" appReveal>
+        Building modern <em>web, mobile</em> and <em>AI-powered</em> applications with
+        clean design and scalable engineering.
+      </p>
+
+      <div class="hero__ctas" appReveal>
+        <a routerLink="/projects" class="btn btn--primary" appMagnetic>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="8" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+          See my work
+        </a>
+        <a href="resume.pdf" download class="btn btn--outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M14 3v4h4" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+          Download résumé
+        </a>
+      </div>
+
+      <div class="tech-badges" [appReveal]="80">
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M12 2c-3 0-5 1-5 4v2h5v1H5c-2 0-3 2-3 5s1 5 3 5h2v-3c0-2 1-3 3-3h5c2 0 3-1 3-3V6c0-3-2-4-6-4z" fill="#3776AB"/>
+            <path d="M12 22c3 0 5-1 5-4v-2h-5v-1h7c2 0 3-2 3-5s-1-5-3-5h-2v3c0 2-1 3-3 3H9c-2 0-3 1-3 3v3c0 3 2 4 6 4z" fill="#FFD43B"/>
+          </svg>
+          Python
+        </span>
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <defs>
+              <linearGradient id="kotlinGrad" x1="0" y1="0" x2="24" y2="24">
+                <stop offset="0" stop-color="#E44857"/>
+                <stop offset="0.5" stop-color="#C711E1"/>
+                <stop offset="1" stop-color="#7F52FF"/>
+              </linearGradient>
+            </defs>
+            <path d="M2 2h20L12 12l10 10H2V2z" fill="url(#kotlinGrad)"/>
+          </svg>
+          Kotlin
+        </span>
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <circle cx="12" cy="12" r="2.2" fill="#61DAFB"/>
+            <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.3"/>
+            <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.3" transform="rotate(60 12 12)"/>
+            <ellipse cx="12" cy="12" rx="10" ry="4" fill="none" stroke="#61DAFB" stroke-width="1.3" transform="rotate(120 12 12)"/>
+          </svg>
+          React
+        </span>
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M12 2l9 3.2-1.4 11.6L12 22l-7.6-5.2L3 5.2 12 2z" fill="#DD0031"/>
+            <path d="M12 5l5.2 12h-2.1l-1-2.6H9.9l-1 2.6H6.8L12 5zm0 3.2L10.6 12h2.8L12 8.2z" fill="#fff"/>
+          </svg>
+          Angular
+        </span>
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M7 20l3-16 2.5 5L14 6l3 14-5 2-5-2z" fill="#FFA000"/>
+            <path d="M9 19l1.8-9.8L12 12l1-3 2 10.5-3 1.5-3-1.2z" fill="#FF8F00"/>
+          </svg>
+          Firebase
+        </span>
+        <span class="tech-badge">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <circle cx="6" cy="6" r="2.2" fill="#F05033"/>
+            <circle cx="6" cy="18" r="2.2" fill="#F05033"/>
+            <circle cx="17" cy="12" r="2.2" fill="#F05033"/>
+            <path d="M6 8v8M6 8c0 4 5 4 9 4" stroke="#F05033" stroke-width="1.4" fill="none"/>
+          </svg>
+          Git
+        </span>
+      </div>
+    </div>
+
+    <div class="hero__photo-wrap" [appReveal]="120">
+      <div class="hero__photo-glow" aria-hidden="true"></div>
+      <span class="hero__photo-mark" aria-hidden="true">&lt;/&gt;</span>
+      <app-shot
+        class="hero__photo"
+        src="profile.jpg"
+        alt="Ibraheem Rashid"
+        aspectRatio="4 / 5"
+        placeholderLabel="Add your photo here"
+      ></app-shot>
+
+      <div class="hero__quote-card">
+        <span class="hero__quote-mark" aria-hidden="true">&lt;/&gt;</span>
+        <p>
+          I like turning ambiguous ideas into working software.
+          Clean code. Careful design. <em>Real impact.</em>
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section pillars">
-  <div class="container">
-    <span class="eyebrow">What I build with</span>
-    <h2 class="heading-lg" appReveal>Three platforms, one habit of shipping.</h2>
+<section class="section teaser">
+  <div class="container teaser__grid">
+    <div class="teaser__card" appReveal>
+      <span class="eyebrow">About me</span>
+      <h2 class="heading-lg">Detail-first, curious by default.</h2>
+      <p class="lede">
+        A software developer working across Android, modern web frontends, and applied
+        machine learning — and before that, a sales lead and a mentor.
+      </p>
+      <a routerLink="/about" class="teaser__link link-underline">More about me →</a>
+    </div>
 
-    <div class="pillars__grid">
-      <a routerLink="/about" class="pillar" appReveal>
-        <span class="pillar__label">01</span>
-        <h3>Mobile</h3>
-        <p>Kotlin, Android SDK, React Native — from a shopping app to a prayer-times app that runs fully offline.</p>
-      </a>
-      <a routerLink="/about" class="pillar" appReveal>
-        <span class="pillar__label">02</span>
-        <h3>Web</h3>
-        <p>React, Angular, Django — frontends and backends built to hold up outside a demo.</p>
-      </a>
-      <a routerLink="/about" class="pillar" appReveal>
-        <span class="pillar__label">03</span>
-        <h3>Applied AI</h3>
-        <p>Python, scikit-learn, NLP pipelines that turn messy text into a decision someone can act on.</p>
-      </a>
+    <div class="teaser__card" [appReveal]="80">
+      <span class="eyebrow">What I build with</span>
+      <h2 class="heading-lg">Three platforms, one habit of shipping.</h2>
+      <div class="tag-row teaser__tags">
+        <span class="tag">Kotlin</span>
+        <span class="tag">React</span>
+        <span class="tag">Angular</span>
+        <span class="tag">Python</span>
+        <span class="tag">Django</span>
+        <span class="tag">Firebase</span>
+      </div>
+      <a routerLink="/about" class="teaser__link link-underline">Explore my stack →</a>
     </div>
   </div>
 </section>
 
-<section class="section section--alt featured">
+<section class="section section--alt">
   <div class="container">
     <span class="eyebrow">Selected work</span>
     <h2 class="heading-lg" appReveal>Two problems worth solving properly.</h2>
 
     <div class="featured__grid">
-      @for (project of featured; track project.slug) {
-        <a [routerLink]="['/projects', project.slug]" class="featured__card" appReveal>
+      @for (project of featured; track project.slug; let i = $index) {
+        <a [routerLink]="['/projects', project.slug]" class="featured__card" [appReveal]="i * 90" appTilt>
           <app-shot [src]="project.screenshots[0]" [alt]="project.title + ' screenshot'"></app-shot>
           <div class="featured__card-body">
             <span class="featured__card-status">{{ project.status }}</span>
@@ -56,13 +164,43 @@
       }
     </div>
 
-    <a routerLink="/projects" class="featured__all">View all projects →</a>
+    <a routerLink="/projects" class="featured__all link-underline">View all projects →</a>
   </div>
 </section>
 
-<section class="section cta-band">
-  <div class="container cta-band__inner" appReveal>
-    <h2 class="heading-lg">Let's build something.</h2>
-    <a routerLink="/contact" class="btn btn--primary">Get in touch</a>
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Where I've worked</span>
+    <h2 class="heading-lg" appReveal>A path that didn't start in a code editor.</h2>
+
+    <div class="mini-timeline">
+      @for (item of recentRoles; track item.org; let i = $index) {
+        <div class="mini-t-item" [appReveal]="i * 70">
+          <span class="mini-t-item__date">{{ item.dateRange }}</span>
+          <h3>{{ item.role }}</h3>
+          <span class="mini-t-item__org">{{ item.org }}</span>
+        </div>
+      }
+    </div>
+
+    <a routerLink="/experience" class="featured__all link-underline">Full experience →</a>
+  </div>
+</section>
+
+<section class="section connect">
+  <div class="connect__dots" aria-hidden="true"></div>
+  <div class="container connect__inner" appReveal>
+    <div>
+      <span class="eyebrow">Get in touch</span>
+      <h2 class="heading-lg">Let's build something.</h2>
+      <p class="lede connect__lede">
+        Open to remote roles, freelance work, or just talking through a hard problem.
+      </p>
+      <div class="connect__meta">
+        <a href="mailto:ibraheeemrashid139@gmail.com">ibraheeemrashid139@gmail.com</a>
+        <span>Srinagar, India</span>
+      </div>
+    </div>
+    <a routerLink="/contact" class="btn btn--primary" appMagnetic>Get in touch</a>
   </div>
 </section>

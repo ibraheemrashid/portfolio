@@ -1,16 +1,22 @@
-import { Directive, ElementRef, OnInit, OnDestroy, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 
 /**
  * Adds the `.reveal` class (see styles.scss) and toggles `.is-visible`
  * once the host element scrolls into view. Falls back to immediately
  * visible if the user prefers reduced motion or IntersectionObserver
  * isn't available.
+ *
+ * Optionally bind a stagger delay in ms, e.g. [appReveal]="i * 80" inside
+ * an @for loop, so grouped items (cards, tags, timeline entries) animate
+ * in sequence instead of all firing at once.
  */
 @Directive({
   selector: '[appReveal]',
   standalone: true
 })
 export class RevealDirective implements OnInit, OnDestroy {
+  @Input('appReveal') delayMs: number | '' = '';
+
   private observer?: IntersectionObserver;
 
   constructor(private el: ElementRef<HTMLElement>, private renderer: Renderer2) {}
@@ -22,6 +28,11 @@ export class RevealDirective implements OnInit, OnDestroy {
     if (prefersReduced || !('IntersectionObserver' in window)) {
       this.renderer.addClass(this.el.nativeElement, 'is-visible');
       return;
+    }
+
+    const delay = typeof this.delayMs === 'number' ? this.delayMs : 0;
+    if (delay > 0) {
+      this.renderer.setStyle(this.el.nativeElement, 'transition-delay', `${delay}ms`);
     }
 
     this.observer = new IntersectionObserver(

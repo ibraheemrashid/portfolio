@@ -5,12 +5,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs/operators';
 import { RevealDirective } from '../../shared/reveal.directive';
 import { ShotComponent } from '../../shared/shot/shot.component';
+import { MagneticDirective } from '../../shared/magnetic.directive';
 import { PROJECTS, Project } from '../../data/projects.data';
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink, RevealDirective, ShotComponent],
+  imports: [CommonModule, RouterLink, RevealDirective, ShotComponent, MagneticDirective],
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.scss']
 })

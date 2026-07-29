@@ -1,10 +1,10 @@
-<div class="shot">
+<div class="shot" [style.--shot-aspect]="aspectRatio">
   @if (!errored) {
     <img [src]="src" [alt]="alt" loading="lazy" (error)="onError()" />
   } @else {
     <div class="shot__placeholder">
       <span class="shot__placeholder-mark">▢</span>
-      <span class="shot__placeholder-label">Screenshot coming soon</span>
+      <span class="shot__placeholder-label">{{ placeholderLabel }}</span>
       <span class="shot__placeholder-path">{{ src }}</span>
     </div>
   }

@@ -9,6 +9,8 @@ import { Component, Input } from '@angular/core';
 export class ShotComponent {
   @Input({ required: true }) src!: string;
   @Input() alt = '';
+  @Input() aspectRatio = '16 / 10';
+  @Input() placeholderLabel = 'Screenshot coming soon';
   errored = false;
 
   onError(): void {

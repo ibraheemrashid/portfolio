@@ -177,9 +177,11 @@ button { font: inherit; }
 .btn--primary:hover { background: var(--teal-deep); transform: translateY(-1px); }
 .btn--outline { border-color: var(--line); color: var(--ink); background: transparent; }
 .btn--outline:hover { border-color: var(--teal); color: var(--teal); }
+.btn:active { transform: scale(.96); }
 
 @media (prefers-reduced-motion: reduce) {
   .btn { transition: none; }
+  .btn:active { transform: none; }
 }
 
 .tag {
@@ -194,6 +196,30 @@ button { font: inherit; }
   color: var(--ink-soft);
 }
 .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ---------- Underline draw-in, for standout content links ---------- */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .link-underline::after { transition: none; }
+}
 
 /* ---------- Reveal-on-scroll (used by RevealDirective) ---------- */
 .reveal {

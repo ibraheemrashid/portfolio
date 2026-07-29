@@ -30,6 +30,19 @@
   display: none;
   align-items: center;
   gap: 28px;
+  position: relative;
+}
+
+.nav__indicator {
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  height: 2px;
+  background: var(--teal);
+  border-radius: 2px;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .3s cubic-bezier(0.22, 1, 0.36, 1), width .3s cubic-bezier(0.22, 1, 0.36, 1), opacity .2s ease;
 }
 
 .nav__links a {
@@ -108,16 +121,22 @@
 
 .nav__sheet {
   position: fixed;
-  top: 64px; left: 0; right: 0; bottom: 0;
-  background: var(--paper);
+  inset: 0;
+  padding-top: calc(64px + env(safe-area-inset-top, 0px));
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(24px);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
   display: flex;
   flex-direction: column;
-  padding: 24px;
   gap: 4px;
+  overflow-y: auto;
   transform: translateY(-8px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity .25s ease, transform .25s ease;
+  transition: opacity .25s ease, transform .25s ease, background-color .3s ease;
 }
 .nav--open .nav__sheet {
   opacity: 1;
@@ -131,6 +150,9 @@
   color: var(--ink);
   padding: 14px 4px;
   border-bottom: 1px solid var(--line);
+}
+.nav__sheet a.is-active {
+  color: var(--teal);
 }
 .nav__sheet-resume {
   margin-top: 16px;
@@ -146,4 +168,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .nav__toggle span, .nav__sheet { transition: none; }
+  .nav__indicator { transition: none; }
 }

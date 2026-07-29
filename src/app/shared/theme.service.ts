@@ -26,16 +26,17 @@ export class ThemeService {
   }
 
   private getInitialTheme(): Theme {
-    if (typeof window === 'undefined') return 'light';
+    if (typeof window === 'undefined') return 'dark';
 
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored === 'light' || stored === 'dark') return stored;
     } catch {
-      // ignore, fall through to system preference
+      // ignore, fall through to default
     }
 
-    const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
-    return prefersDark ? 'dark' : 'light';
+    // Dark is the site's default look. Visitors can still switch — this
+    // just decides what a first-time visitor with no saved preference sees.
+    return 'dark';
   }
 }

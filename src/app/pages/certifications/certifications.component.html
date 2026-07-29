@@ -4,8 +4,8 @@
     <h1 class="heading-xl" appReveal>Learning on purpose, not just on the job.</h1>
 
     <div class="cert-grid">
-      @for (cert of certifications; track cert.title) {
-        <div class="cert-card" appReveal>
+      @for (cert of certifications; track cert.title; let i = $index) {
+        <div class="cert-card" [appReveal]="i * 80">
           <span class="cert-card__badge">🎓</span>
           <h3>{{ cert.title }}</h3>
           <span class="cert-card__issuer">{{ cert.issuer }}</span>
