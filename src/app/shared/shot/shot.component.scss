@@ -13,7 +13,7 @@
 .shot img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: var(--shot-fit, cover);
   transition: transform .5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .shot:hover img {

@@ -30,7 +30,7 @@ export class NavComponent implements AfterViewInit {
   constructor(router: Router) {
     router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        this.menuOpen = false;
+        this.closeMenu();
       }
       if (event instanceof NavigationEnd) {
         requestAnimationFrame(() => this.updateIndicator());
@@ -72,10 +72,12 @@ export class NavComponent implements AfterViewInit {
 
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
+    document.body.classList.toggle('nav-scroll-lock', this.menuOpen);
   }
 
   closeMenu(): void {
     this.menuOpen = false;
+    document.body.classList.remove('nav-scroll-lock');
   }
 
   @HostListener('window:keydown.escape')

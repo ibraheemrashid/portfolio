@@ -126,7 +126,7 @@
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
-  background: var(--nav-bg);
+  background: var(--nav-sheet-bg);
   backdrop-filter: saturate(180%) blur(24px);
   -webkit-backdrop-filter: saturate(180%) blur(24px);
   display: flex;

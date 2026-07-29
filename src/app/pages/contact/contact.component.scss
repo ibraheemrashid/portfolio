@@ -18,6 +18,12 @@
   color: var(--muted);
 }
 .contact__meta a:hover { color: var(--teal); }
+.contact__meta a,
+.contact__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
 
 @media (min-width: 700px) {
   .contact__meta {

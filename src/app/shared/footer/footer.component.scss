@@ -16,6 +16,11 @@
   display: flex;
   gap: 18px;
 }
+.footer__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 .footer__links a:hover { color: var(--teal); }
 
 @media (min-width: 700px) {

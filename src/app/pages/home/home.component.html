@@ -94,6 +94,14 @@
           Git
         </span>
       </div>
+
+      <div class="availability-card" [appReveal]="140">
+        <span class="availability-card__dot" aria-hidden="true"></span>
+        <div>
+          <strong>Available for opportunities</strong>
+          <span>Open to remote roles, freelance work, and new opportunities</span>
+        </div>
+      </div>
     </div>
 
     <div class="hero__photo-wrap" [appReveal]="120">
@@ -110,8 +118,7 @@
       <div class="hero__quote-card">
         <span class="hero__quote-mark" aria-hidden="true">&lt;/&gt;</span>
         <p>
-          I like turning ambiguous ideas into working software.
-          Clean code. Careful design. <em>Real impact.</em>
+          <em>Building, Learning and Improving everyday.</em>
         </p>
       </div>
     </div>
@@ -154,7 +161,7 @@
     <div class="featured__grid">
       @for (project of featured; track project.slug; let i = $index) {
         <a [routerLink]="['/projects', project.slug]" class="featured__card" [appReveal]="i * 90" appTilt>
-          <app-shot [src]="project.screenshots[0]" [alt]="project.title + ' screenshot'"></app-shot>
+          <app-shot [src]="project.screenshots[0]" [alt]="project.title + ' screenshot'" fit="contain"></app-shot>
           <div class="featured__card-body">
             <span class="featured__card-status">{{ project.status }}</span>
             <h3>{{ project.title }}</h3>

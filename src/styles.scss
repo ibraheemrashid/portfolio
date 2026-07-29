@@ -30,6 +30,7 @@
   /* Nav bar translucency — theme-dependent */
   --nav-bg: rgba(255, 255, 255, 0.72);
   --nav-border: rgba(0, 0, 0, 0.06);
+  --nav-sheet-bg: rgba(255, 255, 255, 0.97);
 
   --radius-lg: 22px;
   --radius-md: 14px;
@@ -69,6 +70,12 @@
 
   --nav-bg: rgba(0, 0, 0, 0.6);
   --nav-border: rgba(255, 255, 255, 0.08);
+  --nav-sheet-bg: rgba(0, 0, 0, 0.97);
+}
+
+body.nav-scroll-lock {
+  overflow: hidden;
+
 }
 
 body {
