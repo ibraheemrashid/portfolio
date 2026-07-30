@@ -2,6 +2,15 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
+}
+
+.nav__bar {
+  position: relative;
+  z-index: 2;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: var(--nav-bg);
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
@@ -9,14 +18,7 @@
   transition: background-color .3s ease, border-color .3s ease;
 }
 @media (prefers-reduced-motion: reduce) {
-  .nav { transition: none; }
-}
-
-.nav__bar {
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  .nav__bar { transition: none; }
 }
 
 .nav__mark {
@@ -96,6 +98,8 @@
 .nav__sheet-theme:hover { color: var(--teal); }
 
 .nav__toggle {
+  position: relative;
+  z-index: 102;
   display: flex;
   flex-direction: column;
   justify-content: center;
