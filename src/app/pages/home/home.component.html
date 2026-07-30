@@ -29,7 +29,7 @@
             <rect x="3" y="8" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/>
             <path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.8"/>
           </svg>
-          See my work
+          What I've built
         </a>
         <a href="resume.pdf" download class="btn btn--outline">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -94,14 +94,6 @@
           Git
         </span>
       </div>
-
-      <div class="availability-card" [appReveal]="140">
-        <span class="availability-card__dot" aria-hidden="true"></span>
-        <div>
-          <strong>Available for opportunities</strong>
-          <span>Open to remote roles, freelance work, and new opportunities</span>
-        </div>
-      </div>
     </div>
 
     <div class="hero__photo-wrap" [appReveal]="120">
@@ -112,43 +104,32 @@
         src="profile.jpg"
         alt="Ibraheem Rashid"
         aspectRatio="4 / 5"
+        [cropToFill]="true"
         placeholderLabel="Add your photo here"
       ></app-shot>
-
-      <div class="hero__quote-card">
-        <span class="hero__quote-mark" aria-hidden="true">&lt;/&gt;</span>
-        <p>
-          <em>Building, Learning and Improving everyday.</em>
-        </p>
-      </div>
     </div>
   </div>
 </section>
 
-<section class="section teaser">
-  <div class="container teaser__grid">
-    <div class="teaser__card" appReveal>
-      <span class="eyebrow">About me</span>
-      <h2 class="heading-lg">Detail-first, curious by default.</h2>
-      <p class="lede">
-        A software developer working across Android, modern web frontends, and applied
-        machine learning — and before that, a sales lead and a mentor.
-      </p>
-      <a routerLink="/about" class="teaser__link link-underline">More about me →</a>
+<section class="section statement">
+  <div class="container statement__inner" appReveal>
+    <p class="statement__text">
+      I didn't start in tech — I led a sales team, then taught teenagers to code.
+      I still build software the way I'd explain it to a customer:
+      <em>plainly, and with the actual problem in mind.</em>
+    </p>
+
+    <div class="statement__tags">
+      <span class="tag">Kotlin</span>
+      <span class="tag">React</span>
+      <span class="tag">Angular</span>
+      <span class="tag">Python</span>
+      <span class="tag">Django</span>
+      <span class="tag">Firebase</span>
     </div>
 
-    <div class="teaser__card" [appReveal]="80">
-      <span class="eyebrow">What I build with</span>
-      <h2 class="heading-lg">Three platforms, one habit of shipping.</h2>
-      <div class="tag-row teaser__tags">
-        <span class="tag">Kotlin</span>
-        <span class="tag">React</span>
-        <span class="tag">Angular</span>
-        <span class="tag">Python</span>
-        <span class="tag">Django</span>
-        <span class="tag">Firebase</span>
-      </div>
-      <a routerLink="/about" class="teaser__link link-underline">Explore my stack →</a>
+    <div class="statement__links">
+      <a routerLink="/about" class="link-underline">More about me →</a>
     </div>
   </div>
 </section>
@@ -161,7 +142,7 @@
     <div class="featured__grid">
       @for (project of featured; track project.slug; let i = $index) {
         <a [routerLink]="['/projects', project.slug]" class="featured__card" [appReveal]="i * 90" appTilt>
-          <app-shot [src]="project.screenshots[0]" [alt]="project.title + ' screenshot'" fit="contain"></app-shot>
+          <app-shot [src]="project.screenshots[0]" [alt]="project.title + ' screenshot'"></app-shot>
           <div class="featured__card-body">
             <span class="featured__card-status">{{ project.status }}</span>
             <h3>{{ project.title }}</h3>
@@ -177,7 +158,6 @@
 
 <section class="section">
   <div class="container">
-    <span class="eyebrow">Where I've worked</span>
     <h2 class="heading-lg" appReveal>A path that didn't start in a code editor.</h2>
 
     <div class="mini-timeline">
@@ -198,8 +178,7 @@
   <div class="connect__dots" aria-hidden="true"></div>
   <div class="container connect__inner" appReveal>
     <div>
-      <span class="eyebrow">Get in touch</span>
-      <h2 class="heading-lg">Let's build something.</h2>
+      <h2 class="heading-lg">Have something worth building?</h2>
       <p class="lede connect__lede">
         Open to remote roles, freelance work, or just talking through a hard problem.
       </p>

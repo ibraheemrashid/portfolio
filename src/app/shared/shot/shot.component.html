@@ -1,4 +1,4 @@
-<div class="shot" [style.--shot-aspect]="aspectRatio" [style.--shot-fit]="fit">
+<div class="shot" [class.shot--crop]="cropToFill" [style.--shot-aspect]="aspectRatio">
   @if (!errored) {
     <img [src]="src" [alt]="alt" loading="lazy" (error)="onError()" />
   } @else {

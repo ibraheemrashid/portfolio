@@ -39,7 +39,7 @@
   color: var(--ink);
   font-size: clamp(38px, 8vw, 68px);
   line-height: 1.04;
-  margin-bottom: 6px;
+  margin-bottom: 18px;
 }
 
 .hero__role-line {
@@ -94,7 +94,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 24px;
 }
 .tech-badge {
   display: inline-flex;
@@ -107,47 +106,6 @@
   font-size: 13.5px;
   font-weight: 600;
   color: var(--ink-soft);
-}
-
-/* ---------- Availability card ---------- */
-.availability-card {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 18px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--line);
-  background: var(--paper);
-  max-width: 420px;
-}
-.availability-card__dot {
-  display: block;
-  flex-shrink: 0;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
-  animation: dotPulse 2.2s ease-out infinite;
-}
-.availability-card strong {
-  display: block;
-  font-size: 14px;
-  color: var(--ink);
-  margin-bottom: 2px;
-}
-.availability-card span {
-  display: block;
-  font-size: 12.5px;
-  color: var(--muted);
-}
-@keyframes dotPulse {
-  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.45); }
-  70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .availability-card__dot { animation: none; }
 }
 
 /* ---------- Hero photo ---------- */
@@ -182,67 +140,42 @@
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.16);
 }
 
-.hero__quote-card {
-  position: relative;
-  z-index: 2;
-  margin-top: -32px;
-  margin-left: auto;
-  width: min(280px, 84%);
-  background: var(--invert-bg);
-  color: var(--invert-text);
-  border-radius: var(--radius-md);
-  padding: 18px 18px 20px;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
-  display: flex;
-  gap: 12px;
+/* ================= Statement (About / Skills, no cards) ================= */
+.statement {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
-.hero__quote-mark {
-  flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--invert-accent);
-  border: 1px solid rgba(245, 245, 247, 0.2);
-  border-radius: 8px;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.statement__inner {
+  max-width: 760px;
 }
-.hero__quote-card p {
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: rgba(245, 245, 247, 0.82);
+.statement__text {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(22px, 3.4vw, 32px);
+  line-height: 1.45;
+  color: var(--ink);
+  margin-bottom: 28px;
 }
-.hero__quote-card em {
+.statement__text em {
   font-style: normal;
-  color: var(--invert-accent);
+  color: var(--teal);
 }
-
-/* ================= Teaser (About / Skills) ================= */
-.teaser__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+.statement__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
 }
-.teaser__card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 30px 26px;
-  background: var(--paper);
+.statement__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
 }
-.teaser__card .lede {
-  margin: 14px 0 20px;
-  max-width: none;
-}
-.teaser__tags {
-  margin: 16px 0 20px;
-}
-.teaser__link {
+.statement__links a {
   font-weight: 600;
   color: var(--teal);
 }
-.teaser__link:hover { color: var(--teal-deep); }
+.statement__links a:hover { color: var(--teal-deep); }
 
 /* ================= Featured work ================= */
 .featured__grid {
@@ -342,7 +275,6 @@
   align-items: flex-start;
   gap: 28px;
 }
-.connect .eyebrow { color: var(--invert-accent); }
 .connect .heading-lg { color: var(--invert-text); }
 .connect__lede {
   color: rgba(245, 245, 247, 0.62);
@@ -360,7 +292,6 @@
 
 /* ================= Responsive ================= */
 @media (min-width: 700px) {
-  .teaser__grid { grid-template-columns: repeat(2, 1fr); }
   .featured__grid { grid-template-columns: repeat(2, 1fr); }
   .mini-timeline { grid-template-columns: repeat(3, 1fr); }
 }

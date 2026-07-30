@@ -231,15 +231,13 @@ button { font: inherit; }
 /* ---------- Reveal-on-scroll (used by RevealDirective) ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity .7s ease, transform .7s ease;
+  transition: opacity .7s ease;
 }
 .reveal.is-visible {
   opacity: 1;
-  transform: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .reveal { opacity: 1 !important; transition: none !important; }
 }
 
 /* ---------- Native View Transitions for route changes ----------

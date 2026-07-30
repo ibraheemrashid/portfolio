@@ -30,7 +30,7 @@
       <div class="gallery">
         @for (shot of p.screenshots; track shot) {
           <div appReveal>
-            <app-shot [src]="shot" [alt]="p.title + ' screenshot'" fit="contain"></app-shot>
+            <app-shot [src]="shot" [alt]="p.title + ' screenshot'"></app-shot>
           </div>
         }
       </div>

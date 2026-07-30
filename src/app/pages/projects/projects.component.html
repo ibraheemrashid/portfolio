@@ -7,7 +7,7 @@
       @for (project of projects; track project.slug; let i = $index) {
         <article class="card" [appReveal]="i * 80" appTilt>
           <a [routerLink]="['/projects', project.slug]" class="card__media">
-            <app-shot [src]="project.screenshots[0]" [alt]="project.title + ' screenshot'" fit="contain"></app-shot>
+            <app-shot [src]="project.screenshots[0]" [alt]="project.title + ' screenshot'"></app-shot>
           </a>
           <div class="card__body">
             <span class="card__status">{{ project.status }}</span>

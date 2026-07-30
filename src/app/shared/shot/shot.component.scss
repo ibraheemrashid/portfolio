@@ -4,18 +4,33 @@
 }
 
 .shot {
-  aspect-ratio: var(--shot-aspect, 16 / 10);
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--mist);
   border: 1px solid var(--line);
 }
+
+/* Default: let the image dictate its own size — no cropping, no
+   letterboxing, whatever the real screenshot's proportions are. */
 .shot img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: var(--shot-fit, cover);
+  height: auto;
   transition: transform .5s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+/* Opt-in: force a fixed frame and crop to fill it (used for the hero
+   photo, where a consistent portrait frame matters more than showing
+   the whole source image). */
+.shot--crop {
+  aspect-ratio: var(--shot-aspect, 16 / 10);
+}
+.shot--crop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .shot:hover img {
   transform: scale(1.06);
 }
@@ -23,9 +38,10 @@
   .shot img { transition: none; }
   .shot:hover img { transform: none; }
 }
+
 .shot__placeholder {
+  aspect-ratio: var(--shot-aspect, 16 / 10);
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

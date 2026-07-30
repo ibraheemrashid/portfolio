@@ -1,10 +1,5 @@
 import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 
-/**
- * Subtle "magnetic" pull toward the cursor on hover, used on primary CTA
- * buttons. Disabled entirely for touch devices (no hover) and for users
- * who prefer reduced motion.
- */
 @Directive({
   selector: '[appMagnetic]',
   standalone: true
@@ -13,6 +8,9 @@ export class MagneticDirective {
   private readonly strength = 0.28;
   private readonly maxOffset = 10;
   private enabled: boolean;
+  private rect?: DOMRect;
+  private rafId?: number;
+  private lastEvent?: MouseEvent;
 
   constructor(private el: ElementRef<HTMLElement>, private renderer: Renderer2) {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -20,10 +18,37 @@ export class MagneticDirective {
     this.enabled = hasHover && !prefersReduced;
   }
 
+  @HostListener('mouseenter')
+  onMouseEnter(): void {
+    if (!this.enabled) return;
+    this.rect = this.el.nativeElement.getBoundingClientRect();
+  }
+
   @HostListener('mousemove', ['$event'])
   onMouseMove(event: MouseEvent): void {
     if (!this.enabled) return;
-    const rect = this.el.nativeElement.getBoundingClientRect();
+    this.lastEvent = event;
+
+    if (this.rafId != null) return;
+
+    this.rafId = requestAnimationFrame(() => {
+      this.rafId = undefined;
+      if (this.lastEvent) this.applyPull(this.lastEvent);
+    });
+  }
+
+  @HostListener('mouseleave')
+  onMouseLeave(): void {
+    if (!this.enabled) return;
+    if (this.rafId != null) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = undefined;
+    }
+    this.renderer.setStyle(this.el.nativeElement, 'transform', 'translate(0, 0)');
+  }
+
+  private applyPull(event: MouseEvent): void {
+    const rect = this.rect ?? this.el.nativeElement.getBoundingClientRect();
     const relX = event.clientX - (rect.left + rect.width / 2);
     const relY = event.clientY - (rect.top + rect.height / 2);
 
@@ -31,12 +56,6 @@ export class MagneticDirective {
     const y = this.clamp(relY * this.strength, -this.maxOffset, this.maxOffset);
 
     this.renderer.setStyle(this.el.nativeElement, 'transform', `translate(${x}px, ${y}px)`);
-  }
-
-  @HostListener('mouseleave')
-  onMouseLeave(): void {
-    if (!this.enabled) return;
-    this.renderer.setStyle(this.el.nativeElement, 'transform', 'translate(0, 0)');
   }
 
   private clamp(value: number, min: number, max: number): number {

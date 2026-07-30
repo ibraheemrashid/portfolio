@@ -16,6 +16,37 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+    slug: 'jamiat-ahl-e-hadees',
+    title: 'Jamiat Ahl-e-Hadees J&K',
+    tagline: "Rebuilding an organization's web presence from the ground up.",
+    summary:
+      'A single-page site turned into a full multi-page platform, covering everything from fatwa submissions to prayer timings.',
+    problem:
+      "Designed and developed a modern, responsive website for Jamiat Ahle Hadees Jammu & Kashmir, transforming a traditional informational website into a fast, accessible, and engaging digital platform. The project focused on improving user experience, visual identity, performance, and maintainability while supporting the organisation's educational, religious, and community initiatives.",
+    approach: [
+      "Designed a complete UI/UX system inspired by modern product design principles.",
+      "Built a responsive frontend using Angular with reusable standalone components.",
+      "Created a structured navigation system for more than 30 content pages.",
+      "Implemented smooth scroll-based animations and interactive UI elements.",
+      "Developed reusable components and shared styling to improve scalability.",
+      "Optimised layouts for desktop, tablet, and mobile devices.",
+      "Introduced light/dark theme support and consistent design tokens.",
+      "Organised content into modular sections to simplify future maintenance.",
+      "Prepared the application for backend integration and future administrative features."
+    ],
+    outcome:
+      "Delivered a modern, maintainable, and scalable web platform that significantly improved the organisation's digital presence. The new architecture simplifies future feature development, supports backend integration, and provides a polished user experience across devices.",
+    stack: ['Angular', 'TypeScript', 'HTML5', 'SCSS', 'JavaScript', ],
+    status: 'Completed · awaiting publish',
+    // NOTE: update this to the specific repo URL if this project lives in its own repository.
+    github: 'https://github.com/ibraheemrashid',
+    // NOTE: add the new URL here once the redesign actually goes live, e.g. live: 'https://www.jahjk.org/'
+    screenshots: [
+      'projects/jamiat-ahl-e-hadees/1.png',
+      'projects/jamiat-ahl-e-hadees/2.png'
+    ]
+  },
+  {
     slug: 'siyam-o-salah',
     title: 'Siyam-o-Salah',
     tagline: 'A prayer & fasting companion built for year-round use, not just Ramadan.',
@@ -32,7 +63,7 @@ export const PROJECTS: Project[] = [
     outcome:
       "A fully offline prayer and fasting companion built for year-round use, not just Ramadan. Currently in active development for iOS, with Android support, an App Store release, and Qibla direction on the roadmap.",
     stack: ['React Native (Expo)', 'JavaScript', 'Kotlin', 'Swift', 'React Navigation', 'Objective-C++', 'AsyncStorage',],
-    status: 'In active development · iOS',
+    status: 'In active development · iOS & Android',
     github: 'https://github.com/ibraheemrashid/SiyamoSalah',
     screenshots: [
       'projects/siyam-o-salah/1.png',
@@ -67,37 +98,6 @@ export const PROJECTS: Project[] = [
     screenshots: [
       'projects/reviewguard/1.png',
       'projects/reviewguard/2.png'
-    ]
-  },
-  {
-    slug: 'jamiat-ahl-e-hadees',
-    title: 'Jamiat Ahl-e-Hadees J&K',
-    tagline: "Rebuilding an organization's web presence from the ground up.",
-    summary:
-      'A single-page site turned into a full multi-page platform, covering everything from fatwa submissions to prayer timings.',
-    problem:
-      "Designed and developed a modern, responsive website for Jamiat Ahle Hadees Jammu & Kashmir, transforming a traditional informational website into a fast, accessible, and engaging digital platform. The project focused on improving user experience, visual identity, performance, and maintainability while supporting the organisation's educational, religious, and community initiatives.",
-    approach: [
-      "Designed a complete UI/UX system inspired by modern product design principles.",
-      "Built a responsive frontend using Angular with reusable standalone components.",
-      "Created a structured navigation system for more than 30 content pages.",
-      "Implemented smooth scroll-based animations and interactive UI elements.",
-      "Developed reusable components and shared styling to improve scalability.",
-      "Optimised layouts for desktop, tablet, and mobile devices.",
-      "Introduced light/dark theme support and consistent design tokens.",
-      "Organised content into modular sections to simplify future maintenance.",
-      "Prepared the application for backend integration and future administrative features."
-    ],
-    outcome:
-      "Delivered a modern, maintainable, and scalable web platform that significantly improved the organisation's digital presence. The new architecture simplifies future feature development, supports backend integration, and provides a polished user experience across devices.",
-    stack: ['Angular', 'TypeScript', 'HTML5', 'SCSS', 'JavaScript', ],
-    status: 'Completed · awaiting publish',
-    // NOTE: update this to the specific repo URL if this project lives in its own repository.
-    github: 'https://github.com/ibraheemrashid',
-    // NOTE: add the new URL here once the redesign actually goes live, e.g. live: 'https://www.jahjk.org/'
-    screenshots: [
-      'projects/jamiat-ahl-e-hadees/1.png',
-      'projects/jamiat-ahl-e-hadees/2.png'
     ]
   }
 ];

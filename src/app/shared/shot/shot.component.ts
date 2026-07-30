@@ -10,7 +10,8 @@ export class ShotComponent {
   @Input({ required: true }) src!: string;
   @Input() alt = '';
   @Input() aspectRatio = '16 / 10';
-  @Input() fit: 'cover' | 'contain' = 'cover';
+  /** Only relevant when cropToFill is true, or while the placeholder is showing. */
+  @Input() cropToFill = false;
   @Input() placeholderLabel = 'Screenshot coming soon';
   errored = false;
 
