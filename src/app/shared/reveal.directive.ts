@@ -31,11 +31,19 @@ export class RevealDirective implements OnInit, OnDestroy {
       (entries) => {
         const entry = entries[0];
         if (entry.isIntersecting) {
+          let shownInstantly = false;
           if (isFirstCheck) {
             this.renderer.setStyle(this.el.nativeElement, 'transition', 'none');
+            shownInstantly = true;
           }
           this.renderer.addClass(this.el.nativeElement, 'is-visible');
           this.observer?.unobserve(entry.target);
+
+          const cleanupDelay = shownInstantly ? 0 : delay + 700 + 50;
+          setTimeout(() => {
+            this.renderer.removeStyle(this.el.nativeElement, 'transition');
+            this.renderer.removeStyle(this.el.nativeElement, 'transition-delay');
+          }, cleanupDelay);
         }
         isFirstCheck = false;
       },

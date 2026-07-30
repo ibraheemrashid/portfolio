@@ -2,22 +2,20 @@ export interface Certification {
   title: string;
   issuer: string;
   date?: string;
-  note?: string;
+  image: string;
 }
 
-// NOTE: titles below are based on the course descriptions you gave me
-// ("Android bootcamp" and "100 Days of Code — Python"). Update `title`
-// and `date` to match the exact wording and completion date on your
-// actual Udemy certificates.
 export const CERTIFICATIONS: Certification[] = [
   {
-    title: 'Android Development Bootcamp',
+    title: 'The Complete Android  14 & Kotlin Development Masterclass.',
     issuer: 'Udemy',
-    date: '', // add completion date, e.g. '2024'
+    date: '',
+    image: 'certifications/android-bootcamp.png'
   },
   {
-    title: '100 Days of Code — The Complete Python Pro Bootcamp',
+    title: '100 Days of Code — The Complete Python Pro Bootcamp.',
     issuer: 'Udemy',
-    date: '', // add completion date, e.g. '2024'
+    date: '',
+    image: 'certifications/100-days-python.png'
   }
 ];

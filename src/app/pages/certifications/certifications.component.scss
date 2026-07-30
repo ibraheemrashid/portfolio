@@ -7,8 +7,11 @@
 .cert-card {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 28px 24px;
+  overflow: hidden;
   background: var(--paper);
+}
+.cert-card__body {
+  padding: 22px 24px 26px;
 }
 .cert-card__badge {
   font-size: 22px;

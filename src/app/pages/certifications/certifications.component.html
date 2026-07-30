@@ -6,12 +6,14 @@
     <div class="cert-grid">
       @for (cert of certifications; track cert.title; let i = $index) {
         <div class="cert-card" [appReveal]="i * 80">
-          <span class="cert-card__badge">🎓</span>
-          <h3>{{ cert.title }}</h3>
-          <span class="cert-card__issuer">{{ cert.issuer }}</span>
-          @if (cert.date) {
-            <span class="cert-card__date">{{ cert.date }}</span>
-          }
+          <app-shot [src]="cert.image" [alt]="cert.title + ' certificate'" placeholderLabel="Add certificate image"></app-shot>
+          <div class="cert-card__body">
+            <h3>{{ cert.title }}</h3>
+            <span class="cert-card__issuer">{{ cert.issuer }}</span>
+            @if (cert.date) {
+              <span class="cert-card__date">{{ cert.date }}</span>
+            }
+          </div>
         </div>
       }
     </div>

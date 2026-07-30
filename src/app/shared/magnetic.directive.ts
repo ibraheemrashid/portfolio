@@ -8,7 +8,6 @@ export class MagneticDirective {
   private readonly strength = 0.28;
   private readonly maxOffset = 10;
   private enabled: boolean;
-  private rect?: DOMRect;
   private rafId?: number;
   private lastEvent?: MouseEvent;
 
@@ -18,19 +17,11 @@ export class MagneticDirective {
     this.enabled = hasHover && !prefersReduced;
   }
 
-  @HostListener('mouseenter')
-  onMouseEnter(): void {
-    if (!this.enabled) return;
-    this.rect = this.el.nativeElement.getBoundingClientRect();
-  }
-
   @HostListener('mousemove', ['$event'])
   onMouseMove(event: MouseEvent): void {
     if (!this.enabled) return;
     this.lastEvent = event;
-
     if (this.rafId != null) return;
-
     this.rafId = requestAnimationFrame(() => {
       this.rafId = undefined;
       if (this.lastEvent) this.applyPull(this.lastEvent);
@@ -48,13 +39,11 @@ export class MagneticDirective {
   }
 
   private applyPull(event: MouseEvent): void {
-    const rect = this.rect ?? this.el.nativeElement.getBoundingClientRect();
+    const rect = this.el.nativeElement.getBoundingClientRect();
     const relX = event.clientX - (rect.left + rect.width / 2);
     const relY = event.clientY - (rect.top + rect.height / 2);
-
     const x = this.clamp(relX * this.strength, -this.maxOffset, this.maxOffset);
     const y = this.clamp(relY * this.strength, -this.maxOffset, this.maxOffset);
-
     this.renderer.setStyle(this.el.nativeElement, 'transform', `translate(${x}px, ${y}px)`);
   }
 

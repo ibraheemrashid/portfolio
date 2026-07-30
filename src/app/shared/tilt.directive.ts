@@ -5,9 +5,8 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
   standalone: true
 })
 export class TiltDirective {
-  private readonly maxTilt = 6; // degrees
+  private readonly maxTilt = 6;
   private enabled: boolean;
-  private rect?: DOMRect;
   private rafId?: number;
   private lastEvent?: MouseEvent;
 
@@ -22,19 +21,11 @@ export class TiltDirective {
     }
   }
 
-  @HostListener('mouseenter')
-  onMouseEnter(): void {
-    if (!this.enabled) return;
-    this.rect = this.el.nativeElement.getBoundingClientRect();
-  }
-
   @HostListener('mousemove', ['$event'])
   onMouseMove(event: MouseEvent): void {
     if (!this.enabled) return;
     this.lastEvent = event;
-
     if (this.rafId != null) return;
-
     this.rafId = requestAnimationFrame(() => {
       this.rafId = undefined;
       if (this.lastEvent) this.applyTilt(this.lastEvent);
@@ -56,10 +47,9 @@ export class TiltDirective {
   }
 
   private applyTilt(event: MouseEvent): void {
-    const rect = this.rect ?? this.el.nativeElement.getBoundingClientRect();
+    const rect = this.el.nativeElement.getBoundingClientRect();
     const px = (event.clientX - rect.left) / rect.width;
     const py = (event.clientY - rect.top) / rect.height;
-
     const rotateY = (px - 0.5) * this.maxTilt * 2;
     const rotateX = (0.5 - py) * this.maxTilt * 2;
 
