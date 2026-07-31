@@ -37,6 +37,35 @@
 .about__list li:last-child { border-bottom: none; padding-bottom: 0; }
 .about__list li span:first-child { color: rgba(255,255,255,.5); }
 
+/* ---------- Point lists (How I work / Currently / Outside of code) ---------- */
+.point-list {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 680px;
+}
+.point-list li {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  padding-left: 20px;
+  position: relative;
+}
+.point-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--line);
+}
+.point-list--tight {
+  margin-top: 0;
+  gap: 10px;
+}
+.point-list--tight li {
+  font-size: 14.5px;
+}
+
 /* ---------- Skills ---------- */
 .skills__grid {
   margin-top: 44px;
