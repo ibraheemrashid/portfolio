@@ -1,41 +1,43 @@
 <header class="nav" [class.nav--open]="menuOpen">
-  <div class="nav__bar container">
-    <a routerLink="/" class="nav__mark" aria-label="Home">IR</a>
+  <div class="nav__bar">
+    <div class="nav__bar-inner container">
+      <a routerLink="/" class="nav__mark" aria-label="Home">IR</a>
 
-    <nav class="nav__links" aria-label="Primary">
-      <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" #navLink>Home</a>
-      <a routerLink="/about" routerLinkActive="is-active" #navLink>About</a>
-      <a routerLink="/experience" routerLinkActive="is-active" #navLink>Experience</a>
-      <a routerLink="/projects" routerLinkActive="is-active" #navLink>Projects</a>
-      <a routerLink="/certifications" routerLinkActive="is-active" #navLink>Certifications</a>
-      <a routerLink="/contact" routerLinkActive="is-active" #navLink>Contact</a>
-      <span class="nav__indicator" #indicator aria-hidden="true"></span>
+      <nav class="nav__links" aria-label="Primary">
+        <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" #navLink>Home</a>
+        <a routerLink="/about" routerLinkActive="is-active" #navLink>About</a>
+        <a routerLink="/experience" routerLinkActive="is-active" #navLink>Experience</a>
+        <a routerLink="/projects" routerLinkActive="is-active" #navLink>Projects</a>
+        <a routerLink="/certifications" routerLinkActive="is-active" #navLink>Certifications</a>
+        <a routerLink="/contact" routerLinkActive="is-active" #navLink>Contact</a>
+        <span class="nav__indicator" #indicator aria-hidden="true"></span>
 
-      <a href="resume.pdf" download class="nav__resume">Résumé</a>
+        <a href="resume.pdf" download class="nav__resume">Résumé</a>
+        <button
+          class="nav__theme-toggle"
+          type="button"
+          (click)="toggleTheme()"
+          [attr.aria-label]="theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+        >
+          @if (theme() === 'dark') {
+            <span aria-hidden="true">☀︎</span>
+          } @else {
+            <span aria-hidden="true">☾</span>
+          }
+        </button>
+      </nav>
+
       <button
-        class="nav__theme-toggle"
+        class="nav__toggle"
         type="button"
-        (click)="toggleTheme()"
-        [attr.aria-label]="theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen"
+        aria-label="Toggle menu"
+        aria-controls="mobileSheet"
       >
-        @if (theme() === 'dark') {
-          <span aria-hidden="true">☀︎</span>
-        } @else {
-          <span aria-hidden="true">☾</span>
-        }
+        <span></span><span></span><span></span>
       </button>
-    </nav>
-
-    <button
-      class="nav__toggle"
-      type="button"
-      (click)="toggleMenu()"
-      [attr.aria-expanded]="menuOpen"
-      aria-label="Toggle menu"
-      aria-controls="mobileSheet"
-    >
-      <span></span><span></span><span></span>
-    </button>
+    </div>
   </div>
 
   <div class="nav__sheet" id="mobileSheet">
