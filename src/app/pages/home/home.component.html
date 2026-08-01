@@ -142,7 +142,7 @@
     <div class="featured__grid">
       @for (project of featured; track project.slug; let i = $index) {
         <a [routerLink]="['/projects', project.slug]" class="featured__card" [appReveal]="i * 90" appTilt>
-          <app-shot [src]="project.screenshots[0]" [alt]="project.title + ' screenshot'"></app-shot>
+          <app-shot [src]="project.cover" [alt]="project.title + ' cover'"></app-shot>
           <div class="featured__card-body">
             <span class="featured__card-status">{{ project.status }}</span>
             <h3>{{ project.title }}</h3>

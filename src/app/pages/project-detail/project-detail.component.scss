@@ -7,6 +7,12 @@
 }
 .back-link:hover { color: var(--teal); }
 
+.detail-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+}
 .detail-hero .heading-xl { margin: 10px 0 14px; }
 .detail-hero__ctas {
   display: flex;
@@ -22,6 +28,18 @@
   border-top: 1px solid var(--line);
   padding-top: 14px;
   max-width: 400px;
+}
+.detail-hero__cover {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.14);
+}
+
+@media (min-width: 860px) {
+  .detail-hero__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
 }
 
 .gallery {

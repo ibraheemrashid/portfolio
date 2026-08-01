@@ -1,27 +1,33 @@
 @if (project(); as p) {
   <section class="section detail-hero">
-    <div class="container">
-      <a routerLink="/projects" class="back-link link-underline">← All projects</a>
-      <span class="eyebrow">{{ p.status }}</span>
-      <h1 class="heading-xl" appReveal>{{ p.title }}</h1>
-      <p class="lede" appReveal>{{ p.tagline }}</p>
+    <div class="container detail-hero__inner">
+      <div class="detail-hero__content">
+        <a routerLink="/projects" class="back-link link-underline">← All projects</a>
+        <span class="eyebrow">{{ p.status }}</span>
+        <h1 class="heading-xl" appReveal>{{ p.title }}</h1>
+        <p class="lede" appReveal>{{ p.tagline }}</p>
 
-      <div class="detail-hero__ctas" appReveal>
-        <a [href]="p.github" target="_blank" rel="noopener" class="btn btn--primary" appMagnetic>View on GitHub</a>
-        @if (p.live) {
-          <a [href]="p.live" target="_blank" rel="noopener" class="btn btn--outline">Visit live site</a>
+        <div class="detail-hero__ctas" appReveal>
+          <a [href]="p.github" target="_blank" rel="noopener" class="btn btn--primary" appMagnetic>View on GitHub</a>
+          @if (p.live) {
+            <a [href]="p.live" target="_blank" rel="noopener" class="btn btn--outline">Visit live site</a>
+          }
+        </div>
+
+        <div class="tag-row detail-hero__tags" appReveal>
+          @for (t of p.stack; track t) {
+            <span class="tag">{{ t }}</span>
+          }
+        </div>
+
+        @if (p.metric) {
+          <div class="detail-hero__metric" appReveal>{{ p.metric }}</div>
         }
       </div>
 
-      <div class="tag-row detail-hero__tags" appReveal>
-        @for (t of p.stack; track t) {
-          <span class="tag">{{ t }}</span>
-        }
+      <div class="detail-hero__cover" [appReveal]="120">
+        <app-shot [src]="p.cover" [alt]="p.title + ' cover'"></app-shot>
       </div>
-
-      @if (p.metric) {
-        <div class="detail-hero__metric" appReveal>{{ p.metric }}</div>
-      }
     </div>
   </section>
 

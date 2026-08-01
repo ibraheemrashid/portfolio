@@ -11,6 +11,7 @@ export interface Project {
   github: string;
   live?: string;
   metric?: string;
+  cover: string;
   screenshots: string[];
 }
 
@@ -41,9 +42,11 @@ export const PROJECTS: Project[] = [
     // NOTE: update this to the specific repo URL if this project lives in its own repository.
     github: 'https://github.com/ibraheemrashid',
     // NOTE: add the new URL here once the redesign actually goes live, e.g. live: 'https://www.jahjk.org/'
+    cover: 'projects/jamiat-ahl-e-hadees/cover.png',
+
     screenshots: [
       'projects/jamiat-ahl-e-hadees/1.png',
-      'projects/jamiat-ahl-e-hadees/2.png'
+      'projects/jamiat-ahl-e-hadees/2.png',
     ]
   },
   {
@@ -65,6 +68,7 @@ export const PROJECTS: Project[] = [
     stack: ['React Native (Expo)', 'JavaScript', 'Kotlin', 'Swift', 'React Navigation', 'Objective-C++', 'AsyncStorage',],
     status: 'In active development · iOS & Android',
     github: 'https://github.com/ibraheemrashid/SiyamoSalah',
+    cover: 'projects/siyam-o-salah/cover.png',
     screenshots: [
       'projects/siyam-o-salah/1.png',
       'projects/siyam-o-salah/2.png',
@@ -95,6 +99,7 @@ export const PROJECTS: Project[] = [
     // NOTE: update this to the specific repo URL if ReviewGuard lives in its own repository.
     github: 'https://github.com/ibraheemrashid',
     metric: '85% sentiment classification accuracy',
+    cover: 'projects/reviewguard/cover.png',
     screenshots: [
       'projects/reviewguard/1.png',
       'projects/reviewguard/2.png'

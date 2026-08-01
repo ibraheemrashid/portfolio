@@ -4,7 +4,6 @@ import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ScrollProgressComponent } from './shared/scroll-progress/scroll-progress.component';
 import { BackToTopComponent } from './shared/back-to-top/back-to-top.component';
-import { SeoService } from './shared/seo.service';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +12,4 @@ import { SeoService } from './shared/seo.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  constructor(seo: SeoService) {
-    seo.init();
-  }
-}
+export class AppComponent {}
