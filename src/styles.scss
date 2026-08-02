@@ -79,7 +79,7 @@ body.nav-scroll-lock {
 
 /* ---------- Selection & scrollbar — small, easy-to-miss craft details ---------- */
 ::selection {
-  background: var(--teal);
+  background-color: var(--teal);
   color: var(--paper);
 }
 
