@@ -190,7 +190,7 @@
   overflow: hidden;
   background: var(--paper);
   border: 1px solid var(--line);
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: opacity .6s ease, translate .6s cubic-bezier(0.16, 1, 0.3, 1), transform .2s ease, box-shadow .2s ease;
 }
 .featured__card:hover {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);

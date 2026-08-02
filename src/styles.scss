@@ -75,7 +75,32 @@
 
 body.nav-scroll-lock {
   overflow: hidden;
+}
 
+/* ---------- Selection & scrollbar — small, easy-to-miss craft details ---------- */
+::selection {
+  background: var(--teal);
+  color: var(--paper);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
+  border: 2px solid var(--paper);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
 }
 
 body {
@@ -231,13 +256,15 @@ button { font: inherit; }
 /* ---------- Reveal-on-scroll (used by RevealDirective) ---------- */
 .reveal {
   opacity: 0;
-  transition: opacity .7s ease;
+  translate: 0 26px;
+  transition: opacity .6s ease, translate .6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.is-visible {
   opacity: 1;
+  translate: 0 0;
 }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1 !important; transition: none !important; }
+  .reveal { opacity: 1 !important; translate: 0 !important; transition: none !important; }
 }
 
 /* ---------- Native View Transitions for route changes ----------
