@@ -1,7 +1,13 @@
 <header class="nav" [class.nav--open]="menuOpen">
   <div class="nav__bar">
     <div class="nav__bar-inner container">
-      <a routerLink="/" class="nav__mark" aria-label="Home">IR</a>
+      <a routerLink="/" class="nav__mark" aria-label="Home">
+  @if (theme() === 'dark') {
+    <img src="logo-dark.png" alt="Ibraheem Rashid" />
+  } @else {
+    <img src="logo-light.png" alt="Ibraheem Rashid" />
+  }
+</a>
 
       <nav class="nav__links" aria-label="Primary">
         <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" #navLink>Home</a>

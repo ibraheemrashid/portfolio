@@ -23,10 +23,13 @@
 }
 
 .nav__mark {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 19px;
-  color: var(--ink);
+  display: flex;
+  align-items: center;
+}
+.nav__mark img {
+  height: 70px;
+  width: auto;
+  display: block;
 }
 
 .nav__links {
